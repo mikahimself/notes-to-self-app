@@ -69,6 +69,7 @@
 .cdk-drag-preview {
   box-sizing: border-box;
   opacity: 1;
+  overflow: hidden;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
@@ -82,7 +83,7 @@
 
 // tää tekee näkyvyysbugin jos on none
 .cdk-drag-placeholder {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 // .cdk-drag-preview.cdk-drag {

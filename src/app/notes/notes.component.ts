@@ -19,12 +19,12 @@ export class NotesComponent {
   ngOnInit(): void {
   }
   ngAfterViewInit() {
-    this.dropListQuery.changes.subscribe(() => {
-      this.dropList = this.dropListQuery.toArray();
-    })
-    Promise.resolve().then(() => {
-      this.dropList = this.dropListQuery.toArray();
-    })
+    // DropListQuery not immediately available. 
+    // Defer assignment to another another JVM turn
+    // to avoid error message.
+    setTimeout(() =>
+      this.dropList = this.dropListQuery.toArray()
+    )
   }
 
   @ViewChildren(CdkDropList) dropListQuery: QueryList<CdkDropList>;
@@ -32,22 +32,8 @@ export class NotesComponent {
   notes = NOTES;
 
   entered(event: CdkDragEnter) {
-    // Container.data - sen indeksi mihin raahataan
-    // item.data - sen indeksi, joka raahataan
-    console.log("container: " + event.container.data);
-    console.log("item: " + event.item.data);
+    // event.container.data - Index of the item on which stuff gets dragged. Assigned through cdkDropListData.
+    // event.item.data - Original index of the item that is being dragged. Assigned through cdkDragData.
     moveItemInArray(this.notes, event.item.data, event.container.data);
-
   }
-  entered2(event: CdkDragEnter) {
-    // Container.data - sen indeksi mihin raahataan
-    // item.data - sen indeksi, joka raahataan
-    console.log("container: " + event.container.data);
-    console.log("item: " + event.item.data);
-    moveItemInArray(this.notes, event.item.data, event.container.data);
-
-  }
-  
-
-  
 }

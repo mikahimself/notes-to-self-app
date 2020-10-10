@@ -1,11 +1,25 @@
-<mat-card *ngFor="let note of notes" style="margin-bottom: 2em;">
-  <mat-card-header>
-    <mat-card-title>{{note.title}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <p>{{note.content.intro}}</p>
-      <ol *ngIf="note.content.steps">
-        <li *ngFor="let step of note.content.steps">{{step}}</li>
-      </ol>
-  </mat-card-content>
-</mat-card>
+<div style="margin: 16px;">
+  <mat-grid-list cols="6" rowHeight="12rem" gutterSize="16px">
+    <mat-grid-tile
+      *ngFor="let note of notes; let i = index"
+      style="margin-bottom: 2em"
+      colspan="1"
+      rowspan="1"
+    >
+      <cdk-drop-list [cdkDropListConnectedTo]="dropList" [cdkDropListData]="i">
+        <mat-card
+          class="dashboard-card"
+          cdkDrag
+          (cdkDragEntered)="entered($event)"
+          [cdkDragData]="i"
+        >
+          <mat-card-header>
+            <mat-card-title>{{ note.title }}</mat-card-title>
+            <mat-icon cdkDragHandle class="more-button">drag_handle</mat-icon>
+          </mat-card-header>
+          <mat-card-content>Dalla Valle Nalle</mat-card-content>
+        </mat-card>
+      </cdk-drop-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

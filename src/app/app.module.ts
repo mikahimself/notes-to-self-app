@@ -9,13 +9,17 @@ import { NoteComponent } from './note/note.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { NoteDialogComponent } from './note-dialog/note-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
-    NoteComponent
+    NoteComponent,
+    NoteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatGridListModule,
     DragDropModule,
-    MatIconModule
+    MatDialogModule,
+    MatExpansionModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

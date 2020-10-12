@@ -7,6 +7,7 @@ interface Keyword {
 }
 
 export interface Note {
+  id: number,
   title: string;
   content: {
     intro: string;

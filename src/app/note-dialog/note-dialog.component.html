@@ -1,0 +1,9 @@
+<h2>{{note.title}}</h2>
+<div>
+  {{note.content.intro}}
+</div>
+<div *ngIf="note.content.steps">
+  <ol>
+    <li *ngFor="let step of note.content.steps">{{step}}</li>
+  </ol>
+</div>

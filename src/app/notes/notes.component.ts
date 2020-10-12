@@ -5,6 +5,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CdkDragDrop, CdkDragEnter, CdkDropList, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { NoteDialogComponent } from '../note-dialog/note-dialog.component';
 
 
 @Component({
@@ -14,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class NotesComponent {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +33,12 @@ export class NotesComponent {
   @ViewChildren(CdkDropList) dropListQuery: QueryList<CdkDropList>;
   dropList: CdkDropList[];
   notes = NOTES;
+
+  openNote(id: number) {
+    const openNote = this.notes.filter(note => note.id === id)[0];
+    this.dialog.open(NoteDialogComponent, { data: { note: openNote}})
+
+  }
 
   entered(event: CdkDragEnter) {
     // event.container.data - Index of the item on which stuff gets dragged. Assigned through cdkDropListData.

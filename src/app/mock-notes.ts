@@ -2,6 +2,7 @@ import { Note } from './notes/note';
 
 export const NOTES: Note[] = [
   {
+    id: 0,
     title: 'Create boilerplate HTML in VS Code',
     content: {
       intro:
@@ -10,6 +11,7 @@ export const NOTES: Note[] = [
     keywords: ['productivity', 'boilerplate', 'html', 'emmet', 'vscode'],
   },
   {
+    id: 1,
     title: 'Quickly init a node project',
     content: {
       intro: 'Use these steps to quickly init an npm project:',
@@ -23,20 +25,23 @@ export const NOTES: Note[] = [
     keywords: ['productivity', 'init', 'node', 'project', 'gitignore'],
   },
   {
-    title: 'Quickly setup an Express server',
+    id: 2,
+    title: 'Quickly setup a bare-bones Express server',
     content: {
       intro:
         '<pre><code>const express = require("express");\nconst app = express();\n\napp.listen(3000, () => console.log("Listening on 3000"));',
     },
   },
   {
-    title: 'Restart node.js server when server gets updated',
+    id: 3,
+    title: 'Restart node.js server on code update',
     content: {
       intro:
         'Install nodemon and run server with <code>nodemon server.js</code> to have it restart after code gets updated.\nTo ignore files or directories, use <code>nodemon --ignore lib/app.js --ignore tests/</code>',
     },
   },
   {
+    id: 4,
     title: 'Add a Node.js app on NameCheap.com',
     content: {
       intro: '...',

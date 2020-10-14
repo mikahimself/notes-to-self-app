@@ -12,6 +12,10 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NoteDialogComponent } from './note-dialog/note-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { NoteToolbarComponent } from './note-toolbar/note-toolbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -19,17 +23,21 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppComponent,
     NotesComponent,
     NoteComponent,
-    NoteDialogComponent
+    NoteDialogComponent,
+    NoteToolbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     MatCardModule,
+    MatInputModule,
     MatGridListModule,
     DragDropModule,
     MatDialogModule,
     MatExpansionModule,
     MatIconModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

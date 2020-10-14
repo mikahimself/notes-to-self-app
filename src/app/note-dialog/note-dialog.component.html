@@ -7,3 +7,6 @@
     <li *ngFor="let step of note.content.steps">{{step}}</li>
   </ol>
 </div>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onDialogClose()">Close</button>
+</mat-dialog-actions>
